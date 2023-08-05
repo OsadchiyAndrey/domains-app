@@ -25,6 +25,6 @@ public class HealthCheckControllerTest {
 
   @Test
   public void test_healthCheckSuccess() throws Exception {
-    mvc.perform(MockMvcRequestBuilders.get("/health")).andExpect(MockMvcResultMatchers.status().isOk());
+    mvc.perform(MockMvcRequestBuilders.get("/api/health")).andExpect(MockMvcResultMatchers.status().isOk());
   }
 }
