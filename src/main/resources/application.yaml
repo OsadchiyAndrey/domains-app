@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    password: ${DB_USER}
+    username: ${DB_PASSWORD}
+    url: jdbc:mysql://db:3306/${DB_SCHEMA}?useUnicode=yes&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  flyway:
+    user: ${DB_USER}
+    password: ${DB_PASSWORD}
+    url: jdbc:mysql://db:3306/${DB_SCHEMA}
+    locations: "classpath:db.migration"
+
+slack:
+  webhook:
+    url: ${WEBHOOK_URL}
+
+jwt:
+  authorization-header: Authorization
+  signing-key-secret: ${JWT_SIGNING_KEY}
+  token-expiration: 60000000
+
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
