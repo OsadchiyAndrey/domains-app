@@ -56,7 +56,7 @@ public class SecurityConfig {
             authorize
                 .requestMatchers(HttpMethod.POST, "/api/v1/authentication/**")
                 .permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/v1/form-results")
+                .requestMatchers(HttpMethod.GET, "/api/health")
                 .permitAll()
                 .requestMatchers("/configuration/**", "/swagger-ui/**",
                     "/v3/api-docs/**", "/webjars/**")
