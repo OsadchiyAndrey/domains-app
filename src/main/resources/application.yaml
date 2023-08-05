@@ -15,6 +15,9 @@ spring:
     url: jdbc:mysql://db:3306/${DB_SCHEMA}
     locations: "classpath:db.migration"
 
+server:
+  origin: ${SERVER_ORIGIN}
+
 slack:
   webhook:
     url: ${WEBHOOK_URL}

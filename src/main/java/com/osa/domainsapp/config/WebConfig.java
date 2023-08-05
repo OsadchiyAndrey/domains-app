@@ -1,5 +1,6 @@
 package com.osa.domainsapp.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -8,11 +9,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
+  @Value("${server.origin}")
+  private String origin;
+
   @Override
   public void addCorsMappings(CorsRegistry registry) {
     registry
         .addMapping("/**")
-        .allowedOrigins("http://localhost:3000")
+        .allowedOrigins("http://localhost:3000", origin)
         .allowedHeaders("X-Requested-With", "Origin", "Content-Type", "Accept", "Authorization")
         .allowedMethods(
             HttpMethod.GET.name(),
